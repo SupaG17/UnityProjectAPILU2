@@ -13,6 +13,7 @@ namespace ProjectMap.WebApi.Tests
 {
     public class GameObjectControllerTests
     {
+        //maakt een mock van de DbSet zodat deze gebruikt kan worden in onze tests
         private static Mock<DbSet<T>> CreateMockDbSet<T>(IQueryable<T> data) where T : class
         {
             var mockSet = new Mock<DbSet<T>>();
@@ -22,7 +23,7 @@ namespace ProjectMap.WebApi.Tests
             mockSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
             return mockSet;
         }
-
+        //maakt een wereld aan en een gameobject
         [Fact]
         public void UpdateGameObjects_UpdatesGameObjects()
         {
@@ -62,14 +63,16 @@ namespace ProjectMap.WebApi.Tests
             // Assert
             Assert.IsType<NoContentResult>(result);
         }
-
+        //chekct of de wereld bestaat
         [Fact]
         public void UpdateGameObjects_EnvironmentNotFound_ReturnsNotFound()
         {
             // Arrange
             var environments = new List<Environment2D>().AsQueryable();
             var mockEnvSet = CreateMockDbSet(environments);
-            mockEnvSet.Setup(m => m.Find(It.IsAny<object[]>())).Returns((object[])null);
+
+            // Fix for CS1503 and CS8600  
+            mockEnvSet.Setup(m => m.Find(It.IsAny<int>())).Returns<int>(id => environments.FirstOrDefault(e => e.Id == id));
 
             var mockGoSet = CreateMockDbSet(new List<GameObject>().AsQueryable());
 
@@ -90,7 +93,8 @@ namespace ProjectMap.WebApi.Tests
 
             // Assert
             var notFound = Assert.IsType<NotFoundObjectResult>(result);
-            Assert.Contains("Environment not found", notFound.Value.ToString());
+            Assert.Contains("Environment not found", notFound.Value?.ToString() ?? string.Empty);
         }
     }
 }
+
