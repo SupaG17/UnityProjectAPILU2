@@ -71,7 +71,6 @@ namespace ProjectMap.WebApi.Tests
             var environments = new List<Environment2D>().AsQueryable();
             var mockEnvSet = CreateMockDbSet(environments);
 
-            // Fix for CS1503 and CS8600  
             mockEnvSet.Setup(m => m.Find(It.IsAny<int>())).Returns<int>(id => environments.FirstOrDefault(e => e.Id == id));
 
             var mockGoSet = CreateMockDbSet(new List<GameObject>().AsQueryable());
