@@ -21,9 +21,6 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Install dependencies 📂
-        run: dotnet restore WebApi
-
-      - name: Restore 🧱
         run: dotnet restore ./ProjectMapWebApi.sln
 
       - name: Build 🧱
