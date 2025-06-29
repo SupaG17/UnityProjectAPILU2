@@ -2,8 +2,6 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
-using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using ProjectMap.WebApi.DataAccess;
 
@@ -64,3 +62,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+namespace ProjectMap.WebApi
+{
+    public partial class Program { }
+}
