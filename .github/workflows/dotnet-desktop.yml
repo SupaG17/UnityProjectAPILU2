@@ -24,11 +24,11 @@ jobs:
         run: dotnet restore ./ProjectMapWebApi.sln
 
       - name: Build 🧱
-        run: dotnet build ./ProjectMapWebApi.sln --configuration Release --no-restore
+        run: dotnet build ./ProjectMapWebApi.sln --no-restore
 
       - name: Test 🧪
-        run: dotnet test ./ProjectMapWebApi.sln --configuration Release --no-build
+        run: dotnet test ./ProjectMapWebApi.sln --no-build
 
       - name: Publish
-        run: dotnet publish ./ProjectMapWebApi.sln --configuration Release --no-build
+        run: dotnet publish ./ProjectMapWebApi.sln --no-build
   
