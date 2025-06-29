@@ -11,7 +11,7 @@
         "projectName": "TestProjectAPI",
         "projectPath": "C:\\Users\\SupaG\\Source\\Repos\\UnityProjectAPILU2\\Tests\\TestProjectAPI\\TestProjectAPI.csproj",
         "packagesPath": "C:\\Users\\SupaG\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SupaG\\source\\repos\\UnityProjectAPILU2\\Tests\\TestProjectAPI\\obj\\",
+        "outputPath": "C:\\Users\\SupaG\\Source\\Repos\\UnityProjectAPILU2\\Tests\\TestProjectAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
