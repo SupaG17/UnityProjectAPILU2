@@ -3,7 +3,7 @@ name: Build & Test 🧪
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   DOTNET_VERSION: '9.0.x'
