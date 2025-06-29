@@ -7,15 +7,12 @@ namespace ProjectMap.WebApi.DataAccess
 {
     public class GameContext : IdentityDbContext<IdentityUser>
     {
-        public GameContext(DbContextOptions<GameContext> options) : base(options)
-        {
-        }
-
-        public DbSet<Environment2D> Environments { get; set; }
-
-        public DbSet<GameObject> GameObjects { get; set; }
 
         
+        public GameContext(DbContextOptions<GameContext> options) : base(options) { }
+
+        public virtual DbSet<Environment2D> Environments { get; set; }
+        public virtual DbSet<GameObject> GameObjects { get; set; }     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using ProjectMap.WebApi.Controllers;
@@ -36,7 +34,9 @@ namespace ProjectMap.WebApi.Tests
             }.AsQueryable();
 
             var mockEnvSet = CreateMockDbSet(environments);
-            mockEnvSet.Setup(m => m.Find(It.IsAny<object[]>())).Returns<object[]>(ids => environments.FirstOrDefault(e => e.Id == (int)ids[0]));
+            mockEnvSet.Setup(m => m.Find(It.IsAny<object[]>()))
+                .Returns<object[]>(ids => environments.FirstOrDefault(e => e.Id == (int)ids[0]));
+
 
             var mockGoSet = CreateMockDbSet(gameObjects);
             mockGoSet.Setup(m => m.RemoveRange(It.IsAny<IEnumerable<GameObject>>()));
@@ -71,7 +71,9 @@ namespace ProjectMap.WebApi.Tests
             var environments = new List<Environment2D>().AsQueryable();
             var mockEnvSet = CreateMockDbSet(environments);
 
-            mockEnvSet.Setup(m => m.Find(It.IsAny<int>())).Returns<int>(id => environments.FirstOrDefault(e => e.Id == id));
+            mockEnvSet.Setup(m => m.Find(It.IsAny<object[]>()))
+                .Returns<object[]>(ids => environments.FirstOrDefault(e => e.Id == (int)ids[0]));
+
 
             var mockGoSet = CreateMockDbSet(new List<GameObject>().AsQueryable());
 

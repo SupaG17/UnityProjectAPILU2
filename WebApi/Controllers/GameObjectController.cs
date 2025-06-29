@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ProjectMap.WebApi.DataAccess;
 using ProjectMap.WebApi.Entities;
-using ProjectMap.WebApi.Requests;
 
 namespace ProjectMap.WebApi.Controllers;
 
