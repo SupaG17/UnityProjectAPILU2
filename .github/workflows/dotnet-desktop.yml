@@ -33,5 +33,5 @@ jobs:
         run: dotnet test ./ProjectMap.WebApi.sln --configuration Release --no-build
 
       - name: Publish
-        run: dotnet publish ./ProjectMap.WebApi.sln --configuration Release -- no-build
+        run: dotnet publish ./ProjectMap.WebApi.sln --configuration Release --no-build
   
